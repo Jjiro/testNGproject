@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="url" value="https://google.com/ncr"/>
-    <test verbose="2" preserve-order="true" name="ParametersSamplesTest">
+<suite name="All Test Suite" parallel = "classes" thread-count="2">
+    <test name="ParallelTest" >
         <classes>
-            <class name="ParametersSamples"/>
+            <class name="ParallelTest.ParallelTest1">
+                <methods>
+                    <include name="logoTest"/>
+                    <include name="homepageTitle"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
-    <parameter name="browser" value="firefox"/>
-    <parameter name="url" value="https://google.com/ncr"/>
-    <test verbose="2" preserve-order="true" name="ParametersSamplesTest1">
+    <test name="ParallelTest2" >
         <classes>
-            <class name="ParametersSamples"/>
+            <class name="ParallelTest.ParallelTest2">
+                <methods>
+                    <include name="loginTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
