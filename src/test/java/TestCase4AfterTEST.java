@@ -59,7 +59,7 @@ public class TestCase4AfterTEST {
         System.out.println("This is test2...");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, enabled = false) //disable this test
     void test3(){
         System.out.println("This is test3...");
     }

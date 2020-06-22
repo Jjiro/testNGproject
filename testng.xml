@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="Anotations">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="https://google.com/ncr"/>
+    <test verbose="2" preserve-order="true" name="ParametersSamplesTest">
         <classes>
-            <class name="TestCase3BeforeCLASS">
-            <methods>
-                <include name="setUp"/>
-                <include name="searchCustomer"/>
-                <include name="addCustomer"/>
-                <include name="tearDown"/>
-            </methods>
-            </class>
-
-            <class name="TestCase3BeforeCLASS">
-            <methods>
-                <include name="test1"/>
-                <include name="test2"/>
-                <include name="test3"/>
-            </methods>
-            </class>
+            <class name="ParametersSamples"/>
         </classes>
     </test>
 
-
+    <parameter name="browser" value="firefox"/>
+    <parameter name="url" value="https://google.com/ncr"/>
+    <test verbose="2" preserve-order="true" name="ParametersSamplesTest1">
+        <classes>
+            <class name="ParametersSamples"/>
+        </classes>
+    </test>
 </suite>
