@@ -23,7 +23,7 @@ import java.util.Date;
 public class PageCheckTest {
 
     public WebDriver driver;
-    public String driverPath = "./gecko";
+    public String driverPath = "./geckodriver";
 
     public ExtentSparkReporter extentSparkReporter;
     public ExtentReports extent;
@@ -72,9 +72,9 @@ public class PageCheckTest {
     @Test
     void prampLogoTest() throws InterruptedException {
         test = extent.createTest("prampLogoTest");
-        System.setProperty("webdriver.gecko.driver", "./gecko");
+        /*System.setProperty("webdriver.gecko.driver", "./geckodriver");
         driver = new FirefoxDriver();
-        driver.get("https://www.pramp.com/#/");
+        driver.get("https://www.pramp.com/#/");*/
         Boolean status = driver.findElement(By.className("companylogo")).isDisplayed();
         Assert.assertTrue(status, "Logo not displayed on the page...");
         Thread.sleep(3000);
@@ -83,10 +83,10 @@ public class PageCheckTest {
     @Test
     void prampLoginTest() throws InterruptedException {
         test = extent.createTest("prampLoginTest");
-        System.setProperty("webdriver.gecko.driver", "./gecko");
+        /*System.setProperty("webdriver.gecko.driver", "./geckodriver");
         driver = new FirefoxDriver();
-        driver.get("https://www.pramp.com/#/");
-        driver.findElement(By.cssSelector("a[href*='/#/sign-in']")).click();
+        driver.get("https://www.pramp.com/#/");*/
+        driver.findElement(By.cssSelector("a[href='/#/sign-in']")).click();
         driver.findElement(By.name("email")).sendKeys("jane@doe.com");
         driver.findElement(By.name("password")).sendKeys("Admin123");
         driver.findElement(By.className("auth-button")).click();
