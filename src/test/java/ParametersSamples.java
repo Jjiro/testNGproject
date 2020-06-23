@@ -26,7 +26,6 @@ public class ParametersSamples {
             driver = new FirefoxDriver();
         }
         driver.get(app);
-
     }
 
     @Test(priority = 0)

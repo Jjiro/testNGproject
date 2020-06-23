@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" parallel = "classes" thread-count="2">
-    <test name="ParallelTest" >
+    <test name="parallelTest" >
         <classes>
-            <class name="ParallelTest.ParallelTest1">
+            <class name="parallelTest.ParallelTest1">
                 <methods>
                     <include name="logoTest"/>
                     <include name="homepageTitle"/>
@@ -14,7 +14,7 @@
 
     <test name="ParallelTest2" >
         <classes>
-            <class name="ParallelTest.ParallelTest2">
+            <class name="parallelTest.ParallelTest2">
                 <methods>
                     <include name="loginTest"/>
                 </methods>
