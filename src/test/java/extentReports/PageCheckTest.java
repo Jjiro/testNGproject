@@ -63,18 +63,19 @@ public class PageCheckTest {
     @Test
     void prampTitleTest() throws InterruptedException {
         test = extent.createTest("prampTitleTest");
+
+        test.createNode("This is a node test within this main test case... "); // adding a node within a test
+        Assert.assertTrue(true);
+
         String title = driver.getTitle();
         System.out.println(title);
-        Assert.assertEquals("Pramp", "Pramp");
+        Assert.assertEquals("Pramps", "Pramp");
         System.out.println(driver.getTitle());
     }
 
     @Test
     void prampLogoTest() throws InterruptedException {
         test = extent.createTest("prampLogoTest");
-        /*System.setProperty("webdriver.gecko.driver", "./geckodriver");
-        driver = new FirefoxDriver();
-        driver.get("https://www.pramp.com/#/");*/
         Boolean status = driver.findElement(By.className("companylogo")).isDisplayed();
         Assert.assertTrue(status, "Logo not displayed on the page...");
         Thread.sleep(3000);
@@ -83,14 +84,12 @@ public class PageCheckTest {
     @Test
     void prampLoginTest() throws InterruptedException {
         test = extent.createTest("prampLoginTest");
-        /*System.setProperty("webdriver.gecko.driver", "./geckodriver");
-        driver = new FirefoxDriver();
-        driver.get("https://www.pramp.com/#/");*/
         driver.findElement(By.cssSelector("a[href='/#/sign-in']")).click();
         driver.findElement(By.name("email")).sendKeys("jane@doe.com");
         driver.findElement(By.name("password")).sendKeys("Admin123");
         driver.findElement(By.className("auth-button")).click();
         String errorMessage = driver.findElement(By.className("bubble-error-component")).getText();
+        System.out.println(errorMessage);
         Assert.assertEquals(errorMessage,"The email or password you entered is incorrect", "Please enter a correct email and/or password...");
     }
 
@@ -100,7 +99,7 @@ public class PageCheckTest {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File fileSource = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
-        String destination = System.getProperty("user.dir") + "Screenshots/" + screenshotName + dateName + ".png";
+        String destination = System.getProperty("user.dir") + "/Screenshots/" + screenshotName + dateName + ".png";
         File fileFinalDestination = new File(destination);
         FileUtils.copyFile(fileSource, fileFinalDestination);
         return destination;

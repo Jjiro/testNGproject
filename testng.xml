@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel = "classes" thread-count="2">
-    <test name="parallelTest" >
+<suite name="All Test Suite">
+    <test verbose="2" name="Allure Reports" thread-count="2">
         <classes>
-            <class name="parallelTest.ParallelTest1">
+            <class name="allureReports.PageCheckTest">
                 <methods>
-                    <include name="logoTest"/>
-                    <include name="homepageTitle"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="ParallelTest2" >
-        <classes>
-            <class name="parallelTest.ParallelTest2">
-                <methods>
-                    <include name="loginTest"/>
+                    <include name="prampTitleTest"/>
+                    <include name="prampLogoTest"/>
+                    <include name="prampLoginTest"/>
+                    <include name="signUp"/>
                 </methods>
             </class>
         </classes>
